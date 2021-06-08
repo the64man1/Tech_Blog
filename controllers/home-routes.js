@@ -7,6 +7,7 @@ router.get('/', async (req, res) => {
         const dbPostData = await Post.findAll();
 
         const posts = dbPostData.map((post) => post.get({ plain: true }));
+        console.log(posts);
         res.render('homepage', {
             posts,
             logged_in: req.session.logged_in,
@@ -22,6 +23,9 @@ router.get('/post/:id', async (req, res) => {
         const dbPostData = await Post.findByPk(req.params.id, {
             include: [
                 {
+                    model: User,
+                },
+                {
                     model: Comment,
                     attributes: [
                         'id',
@@ -30,11 +34,13 @@ router.get('/post/:id', async (req, res) => {
                         'updated_at',
                         'user_id'
                     ],
+                    include: { model: User },
                 },
             ],
         });
 
         const post = dbPostData.get({ plain: true });
+        console.log(post)
         res.render('post', { post, logged_in: req.session.logged_in });
     } catch (err) {
         console.log(err);
@@ -66,7 +72,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
         });
 
         const user = userData.get({ plain: true });
-
+console.log(user)
         res.render('dashboard', {
             ...user,
             logged_in: true

@@ -6,6 +6,7 @@
     <meta name='viewport' content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
     <link rel="stylesheet" type='text/css' href='/css/jass.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type='text/css' href='/css/style.css'>
 </head>
 
@@ -13,7 +14,8 @@
     <header>
         <h1>Welcome to the Tech Blog!</h1>
     </header>
-    <nav>
+    {{> navbar}}
+    {{!-- <nav>
         <a href="/">Homepage</a>
         <a href="/dashboard">Dashboard</a>
         {{#if logged_in}}
@@ -21,7 +23,7 @@
         {{else}}
         <a href="/login">Login</a>
         {{/if}}
-    </nav>
+    </nav> --}}
     <main>
         <div class='blogs'>
             {{{body}}}
@@ -30,6 +32,9 @@
     {{#if logged_in}}
     <script src='/js/logout.js'></script>
     {{/if}}
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src='/js/post.js'></script>
 </body>
 
 </html>
