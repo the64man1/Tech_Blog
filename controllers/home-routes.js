@@ -48,6 +48,36 @@ router.get('/post/:id', async (req, res) => {
     }
 })
 
+router.get('/updatepost/:id', async (req, res) => {
+    try {
+        const dbPostData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                },
+                {
+                    model: Comment,
+                    attributes: [
+                        'id',
+                        'content',
+                        'created_at',
+                        'updated_at',
+                        'user_id'
+                    ],
+                    include: { model: User },
+                },
+            ],
+        });
+
+        const post = dbPostData.get({ plain: true });
+        console.log(post)
+        res.render('updatePost', { post, logged_in: req.session.logged_in });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
         if(!req.session.logged_in) {
