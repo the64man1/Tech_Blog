@@ -19,4 +19,21 @@ const newPostHandler = async (e) => {
     }
 };
 
+const delPostHandler = async (e) => {
+    if (e.target.hasAttribute('data-id')) {
+        const id = e.target.getAttribute('data-id');
+
+        const resp = await fetch(`/api/post/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (resp.ok) {
+            document.location.replace('/dashboard')
+        } else {
+            alert('Post could not be deleted');
+        }
+    }
+};
+
 document.querySelector('.new-post-form').addEventListener('submit', newPostHandler);
+document.querySelector('.post-list').addEventListener('click', delPostHandler);
