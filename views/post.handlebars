@@ -3,16 +3,20 @@
     <p>{{post.content}}</p>
     <p>Posted by {{post.user.username}} on {{post.updatedAt}}</p>
 </div>
-<div>
+{{#if post.comments.length}}
+<div class='comment-list'>
     {{#each post.comments as |comment|}}
     <div class="row mb-4">
     <div class="col-md-5">
         <p>{{comment.content}}</a>
         <p>Posted by: {{comment.user_id}} on {{comment.updated_at}}</p>
+        <button type='submit' class='btn btn-small btn-warning' data-id='{{comment.id}}'>Delete Comment</button>
     </div>
     </div>
     {{/each}}
 </div>
+{{/if}}
+{{#if logged_in}}
 <div>
     <h3>Add Comment:</h3>
     <form class='form new-comment-form'>
@@ -25,5 +29,6 @@
         </div>
     </form>
 </div>
+{{/if}}
 
-<script src='/js/post.js'></script>
+{{!-- <script src='/js/post.js'></script> --}}

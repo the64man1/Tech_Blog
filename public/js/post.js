@@ -21,4 +21,21 @@ const newCommentHandler = async (e) => {
     }
 };
 
+const delCommentHandler = async (e) => {
+    if (e.target.hasAttribute('data-id')) {
+        const id = e.target.getAttribute('data-id');
+
+        const resp = await fetch(`/api/comment/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (resp.ok) {
+            document.location.reload();
+        } else {
+            alert('Comment could not be deleted');
+        }
+    }
+};
+
 document.querySelector('.new-comment-form').addEventListener('submit', newCommentHandler);
+document.querySelector('.comment-list').addEventListener('click', delCommentHandler);

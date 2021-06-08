@@ -15,7 +15,7 @@
             </div>
             <div class='form-group'>
                 <label for='post-content'>Content:</label>
-                <input class='form-input' type='text' id='post-content' name='post-content' />
+                <textarea class='form-input' type='text' id='post-content' name='post-content'></textarea>
             </div>
             <div class='form-group'>
                 <button type='submit' class='btn btn-primary'>Create Blog Post</button>
@@ -32,15 +32,24 @@
             <div class='col-md-8'>
                 <h5><a href='/post/{{post.id}}'>{{post.title}}</a></h5>
                 <p>{{post.content}}</p>
-                <p>{{post.created_at}}</p>
+                <p>{{post.createdAt}}</p>
             </div>
             <div class='col-md-5'>
                 <button class='btn btn-sm btn-warning' data-id='{{post.id}}'>Delete Post</button>
+                <button class='btn btn-sm btn-warning' data-id='{{post.id}}'>Update Post</button>
             </div>
         </div>
         {{/each}}
     </div>
     {{/if}}
+</div>
+
+<div>
+    {{#each posts as |post|}}
+    <p contenteditable="true">{{post.title}}</p>
+    <p contenteditable="true">{{post.content}}</p>
+    <button type='submit' class='btn btn-sm' data-id='{{post.id}}'>Submit Changes</button>
+    {{/each}}
 </div>
 
 <script src='./js/dashboard.js'></script>
