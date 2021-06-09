@@ -4,7 +4,14 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-        const dbPostData = await Post.findAll();
+        const dbPostData = await Post.findAll({
+            include: [
+                { 
+                    model: User,
+                    attributes: ['username'],
+                }
+            ],
+        });
 
         const posts = dbPostData.map((post) => post.get({ plain: true }));
         console.log(posts);
@@ -64,7 +71,7 @@ router.get('/updatepost/:id', async (req, res) => {
                         'updated_at',
                         'user_id'
                     ],
-                    include: { model: User },
+                    include: [{ model: User }],
                 },
             ],
         });
@@ -72,6 +79,21 @@ router.get('/updatepost/:id', async (req, res) => {
         const post = dbPostData.get({ plain: true });
         console.log(post)
         res.render('updatePost', { post, logged_in: req.session.logged_in });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+router.get('/updateComment/:id', async (req, res) => {
+    try {
+        const dbCommentData = await Comment.findByPk(req.params.id, {
+            include: [{ model: Post }]
+        });
+
+        const comment = dbCommentData.get({ plain: true });
+        console.log(comment);
+        res.render('updateComment', { comment, logged_in: req.session.logged_in });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

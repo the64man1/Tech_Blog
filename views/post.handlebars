@@ -10,7 +10,8 @@
     <div class="col-md-5">
         <p>{{comment.content}}</a>
         <p>Posted by: {{comment.user_id}} on {{comment.updated_at}}</p>
-        <button type='submit' class='btn btn-small btn-warning' data-id='{{comment.id}}'>Delete Comment</button>
+        <button type='submit' class='btn btn-sm btn-warning' data-id='{{comment.id}}'>Delete Comment</button>
+        <a class='btn btn-sm btn-warning' href="/updateComment/{{comment.id}}">Update Comment</a>
     </div>
     </div>
     {{/each}}
@@ -21,7 +22,6 @@
     <h3>Add Comment:</h3>
     <form class='form new-comment-form'>
         <div class='form-group'>
-            {{!-- <label for='comment-content'>Content:</label> --}}
             <input class='form-input' type='text' id='comment-content' name='comment-content' />
         </div>
         <div class='form-group'>
@@ -31,4 +31,4 @@
 </div>
 {{/if}}
 
-{{!-- <script src='/js/post.js'></script> --}}
+<script src='/js/post.js'></script>

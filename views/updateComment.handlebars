@@ -1,0 +1,24 @@
+<div class="text-center">
+    <h2 id='post' data-id='{{comment.post.id}}'>Blog Post Commented On</h2>
+    <h3>{{comment.post.title}}</h3>
+    <p>{{comment.post.content}}</p>
+</div>
+
+<div class="text-center">
+    <h2>Original Comment Content</h2>
+    <p>{{comment.content}}</p>
+</div>
+
+<div>
+    <h3>Update Comment:</h3>
+    <form class='form update-comment-form'>
+        <div class='form-group'>
+            <input class='form-input' type='text' id='comment-content' name='comment-content' />
+        </div>
+        <div class='form-group'>
+            <button type='submit' class='btn btn-primary' id='submit-btn' data-id='{{comment.id}}'>Add Comment</button>
+        </div>
+    </form>
+</div>
+
+<script src='/js/updateComment.js'></script>
