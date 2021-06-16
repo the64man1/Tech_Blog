@@ -19,14 +19,6 @@ Post.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        // date_created: {
-        //     type: DataTypes.DATE,
-        //     allowNull: false,
-        // },
-        // date_updated: {
-        //     type: DataTypes.DATE,
-        //     allowNull: true,
-        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

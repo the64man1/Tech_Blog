@@ -16,7 +16,6 @@ const updateCommentHandler = async (e) => {
         });
 
         if (resp.ok) {
-            //document.location.replace('/');
             document.location.replace(`/post/${post_id}`);
         } else {
             alert('Failed to update comment');

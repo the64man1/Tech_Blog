@@ -54,20 +54,10 @@ router.get('/post/:id', async (req, res) => {
 
         const post = dbPostData.get({ plain: true });
 
-        // const user = await User.findByPk(dbPostData.user_id);
-        
         for (const comment of post.comments) {
             comment.poster = (comment.user_id == req.session.user_id) ? true: false;
         }
 
-        // req.session.save(() => {
-        //     req.session.user_id = userData.id;
-        //     req.session.logged_in = true;
-            
-        //     res.json({ user: userData, message: 'Now logged in' });
-        // });
-
-        // console.log(post.comment)
         res.render('post', { post, logged_in: req.session.logged_in });
     } catch (err) {
         console.log(err);
@@ -130,17 +120,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [{ model: Post }],
-            // include: [
-            //     { 
-            //         model: Post,
-            //         attributes: [
-            //             'id',
-            //             'title',
-            //             'content',
-            //             'created_at'
-            //         ],
-            //     },
-            // ],
         });
 
         const user = userData.get({ plain: true });

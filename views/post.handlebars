@@ -6,31 +6,6 @@
 {{#if post.comments.length}}
 <div class='comment-list'>
     {{> comments }}
-    {{!-- {{#each post.comments as |comment|}}
-    <div class="row mb-4">
-    <div class="col-md-5 ml-3 p-2 border">
-        <p>{{comment.content}}</a>
-        <p style='font-size: 75%'>Posted by: {{comment.user.username}} on {{format_date comment.updated_at}}</p>
-        {{log comment}}
-        {{#if poster}}
-        <button type='submit' class='btn btn-sm btn-warning' data-id='{{comment.id}}'>Delete Comment</button>
-        <a class='btn btn-sm btn-warning' href="/updateComment/{{comment.id}}">Update Comment</a>
-        {{/if}}
-    </div>
-    </div>
-    {{/each}} --}}
-    {{!-- {{#each post.comments as |comment|}}
-    <div class="row mb-4">
-    <div class="col-md-5">
-        <p>{{comment.content}}</a>
-        <p>Posted by: {{comment.user_id}} on {{comment.updated_at}}</p>
-        {{#if logged_in}}
-        <button type='submit' class='btn btn-sm btn-warning' data-id='{{comment.id}}'>Delete Comment</button>
-        <a class='btn btn-sm btn-warning' href="/updateComment/{{comment.id}}">Update Comment</a>
-        {{/if}}
-    </div>
-    </div>
-    {{/each}} --}}
 </div>
 {{/if}}
 {{#if logged_in}}
