@@ -19,13 +19,13 @@ In completing this project, I learned about building websites from back to front
     
 ## Installation
     
-To use the Tech Blog, clone the repository by running "git clone `git@github.com:the64man1/Tech_Blog.git`' on your console. Then use the command 'npm install' to install the dependencies. Next you will need to create a .env file to store the information needed to connect to your local SQL database. Then create the 'tech_blogdb' in MySQL by running a query in MySQL Workbench using the schema described in the 'schema.sql' file. Then you can run the command 'npm start' to begin using the Tech Blog. Sample data is included in the seed.sql files.
+To use the Tech Blog, clone the repository by running "git clone `git@github.com:the64man1/Tech_Blog.git`' on your console. Then use the command 'npm install' to install the dependencies. Next you will need to create a .env file to store the information needed to connect to your local SQL database. Then create the 'tech_blogdb' in MySQL by running a query in MySQL Workbench using the schema described in the 'schema.sql' file. Then you can run the command 'npm start' to begin using the Tech Blog on your port localhost:3001. Sample data is included in the seed.sql files, which can be populated using the command 'npm run seed'.
     
 ## Usage
     
-Users are free to use these files to build their own tech blog, or enjoy the functionality of the site on Heroku.
+Users are free to use these files to build their own tech blog locally, or enjoy the functionality of the site on Heroku.
 
-Heroku: https://aq-tech-blog.herokuapp.com/
+Deployed site on Heroku: https://aq-tech-blog.herokuapp.com/
     
 ## License
     
