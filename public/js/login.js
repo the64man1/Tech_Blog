@@ -14,7 +14,7 @@ const loginHandler = async (e) => {
         if (resp.ok) {
             document.location.replace('/');
         } else {
-            alert("Failed to log in, either your account info is wrong, you entered your info wrong, or we couldn't access the database. Please try again!");
+            alert("Failed to log in, either your account info is wrong, you have yet to create an account, or we couldn't access the database. Please try again!");
         }
     }
 };
