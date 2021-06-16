@@ -14,7 +14,7 @@ const loginHandler = async (e) => {
         if (resp.ok) {
             document.location.replace('/');
         } else {
-            alert(resp.statusText);
+            alert("Failed to log in, either your account info is wrong, you entered your info wrong, or we couldn't access the database. Please try again!");
         }
     }
 };
@@ -35,7 +35,7 @@ const signupHandler = async (e) => {
         if (resp.ok) {
             document.location.replace('/');
         } else {
-            alert(resp.statusText);
+            alert("Failed to create an account, please try again!");
         }
     }
 };
