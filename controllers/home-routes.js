@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../models');
+const { belongsTo } = require('../models/User');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -31,6 +32,7 @@ router.get('/post/:id', async (req, res) => {
             include: [
                 {
                     model: User,
+                    attributes: ['username']
                 },
                 {
                     model: Comment,
@@ -41,13 +43,31 @@ router.get('/post/:id', async (req, res) => {
                         'updated_at',
                         'user_id'
                     ],
-                    include: { model: User },
+                    include: [
+                        { 
+                            model: User,
+                            attributes: ['username'] 
+                    }],
                 },
-            ],
+            ]
         });
 
         const post = dbPostData.get({ plain: true });
-        console.log(post)
+
+        // const user = await User.findByPk(dbPostData.user_id);
+        
+        for (const comment of post.comments) {
+            comment.poster = (comment.user_id == req.session.user_id) ? true: false;
+        }
+
+        // req.session.save(() => {
+        //     req.session.user_id = userData.id;
+        //     req.session.logged_in = true;
+            
+        //     res.json({ user: userData, message: 'Now logged in' });
+        // });
+
+        // console.log(post.comment)
         res.render('post', { post, logged_in: req.session.logged_in });
     } catch (err) {
         console.log(err);

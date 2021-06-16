@@ -1,8 +1,8 @@
 {{#each posts as |post|}}
-<div class="row mb-4">
-    <div class="col-md-5">
-        <a href="/post/{{post.id}}">{{post.title}}</a>
-        <p>Posted by: {{user.username}} on {{post.updatedAt}}</p>
+<div class="row m-3">
+    <div class="card col-md-5">
+        <a class='card-header bg-primary' href="/post/{{post.id}}"><h3>{{post.title}}</h3></a>
+        <p class='card-text'>Posted by {{user.username}} on {{format_date post.updatedAt}}</p>
     </div>
 </div>
 {{/each}}
