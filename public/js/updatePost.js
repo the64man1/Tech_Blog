@@ -3,8 +3,8 @@ const updatePostHandler = async (e) => {
 
     const buttonEl = document.querySelector('#submit-btn');
 
-    const title = document.querySelector('#post-title').value.trim();
-    const content = document.querySelector('#post-content').value.trim();
+    const title = document.querySelector('#title').innerHTML.trim();
+    const content = document.querySelector('#content').innerHTML.trim();
     const post_id = buttonEl.getAttribute('data-id');
 
     if (title && content) {
@@ -22,4 +22,4 @@ const updatePostHandler = async (e) => {
     }
 }
 
-document.querySelector('.update-post-form').addEventListener('submit', updatePostHandler);
+document.getElementById('submit-btn').addEventListener('click', updatePostHandler);
