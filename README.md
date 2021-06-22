@@ -8,6 +8,8 @@ With this project, users can create and host their own blog website. Users can c
 
 In completing this project, I learned about building websites from back to front: designing databases in mySQL, setting up relationships between tables, using MVC design concepts for file structure, routing, UX/UI design, and so much more.
     
+![image](https://user-images.githubusercontent.com/74144055/123010354-110adb00-d384-11eb-942a-ac1ebcdb221d.png)   
+   
 ## Table of Contents
     
 - [Installation](#installation)
