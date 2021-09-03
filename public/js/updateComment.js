@@ -2,7 +2,6 @@ const updateCommentHandler = async (e) => {
     e.preventDefault();
 
     const buttonEl = document.querySelector('#submit-btn');
-    //const user_id = req.session.user_id;
     const post_id = document.querySelector('#post').getAttribute('data-id');
 
     const content = document.querySelector('#comment-content').value.trim();
