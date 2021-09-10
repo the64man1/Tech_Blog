@@ -39,4 +39,4 @@ If you would like to contribute to this project by adding sections or modifying 
     
 ## Questions
     
-For questions, you can contact me through GitHub (the64man1), or email me at the64man1@yahoo.com
+For questions, you can contact me through GitHub (the64man1), or email me at aqprogrammer@gmail.com
